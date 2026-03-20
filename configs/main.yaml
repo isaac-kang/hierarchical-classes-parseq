@@ -18,7 +18,7 @@ model:
 
 data:
   _target_: strhub.data.module.SceneTextDataModule
-  root_dir: data
+  root_dir: ~/data/STR/parseq/english/lmdb
   train_dir: ???
   batch_size: ${model.batch_size}
   img_size: ${model.img_size}
@@ -38,15 +38,20 @@ trainer:
   max_epochs: 20
   gradient_clip_val: 20
   accelerator: gpu
-  devices: 2
+  devices: 1
 
 ckpt_path: null
 pretrained: null
 
+wandb:
+  project: hierarchical-classes-parseq
+  group: base-group
+  name: base-name
+
 hydra:
   output_subdir: config
   run:
-    dir: outputs/${model.name}/${now:%Y-%m-%d}_${now:%H-%M-%S}
+    dir: outputs/${wandb.group}/${wandb.name}/${now:%Y-%m-%d_%H-%M-%S}
   sweep:
-    dir: multirun/${model.name}/${now:%Y-%m-%d}_${now:%H-%M-%S}
+    dir: multirun/${wandb.group}/${wandb.name}/${now:%Y-%m-%d_%H-%M-%S}
     subdir: ${hydra.job.override_dirname}

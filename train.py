@@ -24,7 +24,7 @@ import torch
 
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint, StochasticWeightAveraging
-from pytorch_lightning.loggers import TensorBoardLogger
+from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.strategies import DDPStrategy
 from pytorch_lightning.utilities.model_summary import summarize
 
@@ -54,8 +54,11 @@ def get_swa_lr_factor(warmup_pct, swa_epoch_start, div_factor=25, final_div_fact
 def main(config: DictConfig):
     trainer_strategy = 'auto'
     with open_dict(config):
-        # Resolve absolute path to data.root_dir
-        config.data.root_dir = hydra.utils.to_absolute_path(config.data.root_dir)
+        # Resolve absolute path to data.root_dir (~/ → home, relative → project root)
+        _root_dir = Path(config.data.root_dir).expanduser()
+        if not _root_dir.is_absolute():
+            _root_dir = Path(hydra.utils.get_original_cwd()) / _root_dir
+        config.data.root_dir = str(_root_dir)
         # Special handling for GPU-affected config
         gpu = config.trainer.get('accelerator') == 'gpu'
         devices = config.trainer.get('devices', 0)
@@ -100,7 +103,12 @@ def main(config: DictConfig):
     )
     trainer: Trainer = hydra.utils.instantiate(
         config.trainer,
-        logger=TensorBoardLogger(cwd, '', '.'),
+        logger=WandbLogger(
+            project=config.wandb.project,
+            group=config.wandb.group,
+            name=config.wandb.name,
+            save_dir=cwd,
+        ),
         strategy=trainer_strategy,
         enable_model_summary=False,
         callbacks=[checkpoint, swa],

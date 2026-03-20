@@ -42,6 +42,19 @@ class CharsetAdapter:
         return label
 
 
+class PLCharsetAdapter(CharsetAdapter):
+    """CharsetAdapter that first maps extended PL chars back to base chars."""
+
+    def __init__(self, target_charset, ext_to_base: dict):
+        super().__init__(target_charset)
+        self.ext_to_base = ext_to_base  # e.g. {'è': 'e', 'ç': 'c', ...}
+
+    def __call__(self, label):
+        # Map extended chars to base chars, then apply normal adapter
+        label = ''.join(self.ext_to_base.get(c, c) for c in label)
+        return super().__call__(label)
+
+
 class BaseTokenizer(ABC):
 
     def __init__(self, charset: str, specials_first: tuple = (), specials_last: tuple = ()) -> None:
