@@ -1,0 +1,1888 @@
+{
+  "0": {
+    "correct": 228,
+    "total": 230,
+    "accuracy": 0.991304347826087,
+    "confused": [
+      {
+        "char": "2",
+        "count": 1,
+        "rate": 0.004347826086956522
+      },
+      {
+        "char": "C",
+        "count": 1,
+        "rate": 0.004347826086956522
+      }
+    ],
+    "extended_classes": [
+      "0",
+      "0_1",
+      "0_2"
+    ],
+    "extended_class_mapping": {
+      "0": "0",
+      "0_1": "2",
+      "0_2": "C"
+    }
+  },
+  "1": {
+    "correct": 205,
+    "total": 206,
+    "accuracy": 0.9951456310679612,
+    "confused": [
+      {
+        "char": "I",
+        "count": 1,
+        "rate": 0.0048543689320388345
+      }
+    ],
+    "extended_classes": [
+      "1",
+      "1_1"
+    ],
+    "extended_class_mapping": {
+      "1": "1",
+      "1_1": "I"
+    }
+  },
+  "5": {
+    "correct": 110,
+    "total": 111,
+    "accuracy": 0.990990990990991,
+    "confused": [
+      {
+        "char": "9",
+        "count": 1,
+        "rate": 0.009009009009009009
+      }
+    ],
+    "extended_classes": [
+      "5",
+      "5_1"
+    ],
+    "extended_class_mapping": {
+      "5": "5",
+      "5_1": "9"
+    }
+  },
+  "8": {
+    "correct": 80,
+    "total": 81,
+    "accuracy": 0.9876543209876543,
+    "confused": [
+      {
+        "char": "S",
+        "count": 1,
+        "rate": 0.012345679012345678
+      }
+    ],
+    "extended_classes": [
+      "8",
+      "8_1"
+    ],
+    "extended_class_mapping": {
+      "8": "8",
+      "8_1": "S"
+    }
+  },
+  "A": {
+    "correct": 2183,
+    "total": 2207,
+    "accuracy": 0.9891255097417309,
+    "confused": [
+      {
+        "char": "a",
+        "count": 11,
+        "rate": 0.004984141368373357
+      },
+      {
+        "char": "O",
+        "count": 3,
+        "rate": 0.001359311282283643
+      }
+    ],
+    "extended_classes": [
+      "A",
+      "A_1",
+      "A_2"
+    ],
+    "extended_class_mapping": {
+      "A": "A",
+      "A_1": "a",
+      "A_2": "O"
+    }
+  },
+  "B": {
+    "correct": 595,
+    "total": 600,
+    "accuracy": 0.9916666666666667,
+    "confused": [
+      {
+        "char": "C",
+        "count": 1,
+        "rate": 0.0016666666666666668
+      },
+      {
+        "char": "J",
+        "count": 1,
+        "rate": 0.0016666666666666668
+      },
+      {
+        "char": "R",
+        "count": 1,
+        "rate": 0.0016666666666666668
+      },
+      {
+        "char": "a",
+        "count": 1,
+        "rate": 0.0016666666666666668
+      },
+      {
+        "char": "x",
+        "count": 1,
+        "rate": 0.0016666666666666668
+      }
+    ],
+    "extended_classes": [
+      "B",
+      "B_1",
+      "B_2",
+      "B_3",
+      "B_4",
+      "B_5"
+    ],
+    "extended_class_mapping": {
+      "B": "B",
+      "B_1": "C",
+      "B_2": "J",
+      "B_3": "R",
+      "B_4": "a",
+      "B_5": "x"
+    }
+  },
+  "C": {
+    "correct": 1110,
+    "total": 1122,
+    "accuracy": 0.9893048128342246,
+    "confused": [
+      {
+        "char": "c",
+        "count": 6,
+        "rate": 0.0053475935828877
+      },
+      {
+        "char": "G",
+        "count": 2,
+        "rate": 0.0017825311942959
+      }
+    ],
+    "extended_classes": [
+      "C",
+      "C_1",
+      "C_2"
+    ],
+    "extended_class_mapping": {
+      "C": "C",
+      "C_1": "c",
+      "C_2": "G"
+    }
+  },
+  "D": {
+    "correct": 694,
+    "total": 705,
+    "accuracy": 0.9843971631205674,
+    "confused": [
+      {
+        "char": "P",
+        "count": 3,
+        "rate": 0.00425531914893617
+      },
+      {
+        "char": "d",
+        "count": 3,
+        "rate": 0.00425531914893617
+      },
+      {
+        "char": "B",
+        "count": 2,
+        "rate": 0.0028368794326241137
+      },
+      {
+        "char": "E",
+        "count": 1,
+        "rate": 0.0014184397163120568
+      },
+      {
+        "char": "R",
+        "count": 1,
+        "rate": 0.0014184397163120568
+      },
+      {
+        "char": "S",
+        "count": 1,
+        "rate": 0.0014184397163120568
+      }
+    ],
+    "extended_classes": [
+      "D",
+      "D_1",
+      "D_2",
+      "D_3",
+      "D_4",
+      "D_5",
+      "D_6"
+    ],
+    "extended_class_mapping": {
+      "D": "D",
+      "D_1": "P",
+      "D_2": "d",
+      "D_3": "B",
+      "D_4": "E",
+      "D_5": "R",
+      "D_6": "S"
+    }
+  },
+  "E": {
+    "correct": 2750,
+    "total": 2780,
+    "accuracy": 0.9892086330935251,
+    "confused": [
+      {
+        "char": "e",
+        "count": 16,
+        "rate": 0.0057553956834532375
+      },
+      {
+        "char": "I",
+        "count": 3,
+        "rate": 0.001079136690647482
+      }
+    ],
+    "extended_classes": [
+      "E",
+      "E_1",
+      "E_2"
+    ],
+    "extended_class_mapping": {
+      "E": "E",
+      "E_1": "e",
+      "E_2": "I"
+    }
+  },
+  "F": {
+    "correct": 483,
+    "total": 491,
+    "accuracy": 0.9837067209775967,
+    "confused": [
+      {
+        "char": "f",
+        "count": 3,
+        "rate": 0.006109979633401222
+      },
+      {
+        "char": "E",
+        "count": 2,
+        "rate": 0.004073319755600814
+      },
+      {
+        "char": "P",
+        "count": 2,
+        "rate": 0.004073319755600814
+      },
+      {
+        "char": "Y",
+        "count": 1,
+        "rate": 0.002036659877800407
+      }
+    ],
+    "extended_classes": [
+      "F",
+      "F_1",
+      "F_2",
+      "F_3",
+      "F_4"
+    ],
+    "extended_class_mapping": {
+      "F": "F",
+      "F_1": "f",
+      "F_2": "E",
+      "F_3": "P",
+      "F_4": "Y"
+    }
+  },
+  "G": {
+    "correct": 629,
+    "total": 640,
+    "accuracy": 0.9828125,
+    "confused": [
+      {
+        "char": "C",
+        "count": 6,
+        "rate": 0.009375
+      },
+      {
+        "char": "g",
+        "count": 3,
+        "rate": 0.0046875
+      },
+      {
+        "char": "I",
+        "count": 1,
+        "rate": 0.0015625
+      },
+      {
+        "char": "J",
+        "count": 1,
+        "rate": 0.0015625
+      }
+    ],
+    "extended_classes": [
+      "G",
+      "G_1",
+      "G_2",
+      "G_3",
+      "G_4"
+    ],
+    "extended_class_mapping": {
+      "G": "G",
+      "G_1": "C",
+      "G_2": "g",
+      "G_3": "I",
+      "G_4": "J"
+    }
+  },
+  "H": {
+    "correct": 886,
+    "total": 895,
+    "accuracy": 0.9899441340782122,
+    "confused": [
+      {
+        "char": "M",
+        "count": 2,
+        "rate": 0.0022346368715083797
+      },
+      {
+        "char": "h",
+        "count": 2,
+        "rate": 0.0022346368715083797
+      },
+      {
+        "char": "F",
+        "count": 1,
+        "rate": 0.0011173184357541898
+      },
+      {
+        "char": "I",
+        "count": 1,
+        "rate": 0.0011173184357541898
+      },
+      {
+        "char": "L",
+        "count": 1,
+        "rate": 0.0011173184357541898
+      },
+      {
+        "char": "O",
+        "count": 1,
+        "rate": 0.0011173184357541898
+      },
+      {
+        "char": "e",
+        "count": 1,
+        "rate": 0.0011173184357541898
+      }
+    ],
+    "extended_classes": [
+      "H",
+      "H_1",
+      "H_2",
+      "H_3",
+      "H_4",
+      "H_5",
+      "H_6",
+      "H_7"
+    ],
+    "extended_class_mapping": {
+      "H": "H",
+      "H_1": "M",
+      "H_2": "h",
+      "H_3": "F",
+      "H_4": "I",
+      "H_5": "L",
+      "H_6": "O",
+      "H_7": "e"
+    }
+  },
+  "I": {
+    "correct": 1505,
+    "total": 1531,
+    "accuracy": 0.9830176355323318,
+    "confused": [
+      {
+        "char": "i",
+        "count": 10,
+        "rate": 0.006531678641410843
+      },
+      {
+        "char": "E",
+        "count": 3,
+        "rate": 0.001959503592423253
+      },
+      {
+        "char": "T",
+        "count": 3,
+        "rate": 0.001959503592423253
+      },
+      {
+        "char": "l",
+        "count": 3,
+        "rate": 0.001959503592423253
+      }
+    ],
+    "extended_classes": [
+      "I",
+      "I_1",
+      "I_2",
+      "I_3",
+      "I_4"
+    ],
+    "extended_class_mapping": {
+      "I": "I",
+      "I_1": "i",
+      "I_2": "E",
+      "I_3": "T",
+      "I_4": "l"
+    }
+  },
+  "J": {
+    "correct": 126,
+    "total": 129,
+    "accuracy": 0.9767441860465116,
+    "confused": [
+      {
+        "char": "j",
+        "count": 2,
+        "rate": 0.015503875968992248
+      },
+      {
+        "char": "T",
+        "count": 1,
+        "rate": 0.007751937984496124
+      }
+    ],
+    "extended_classes": [
+      "J",
+      "J_1",
+      "J_2"
+    ],
+    "extended_class_mapping": {
+      "J": "J",
+      "J_1": "j",
+      "J_2": "T"
+    }
+  },
+  "K": {
+    "correct": 349,
+    "total": 354,
+    "accuracy": 0.9858757062146892,
+    "confused": [
+      {
+        "char": "E",
+        "count": 2,
+        "rate": 0.005649717514124294
+      },
+      {
+        "char": "L",
+        "count": 1,
+        "rate": 0.002824858757062147
+      },
+      {
+        "char": "M",
+        "count": 1,
+        "rate": 0.002824858757062147
+      },
+      {
+        "char": "R",
+        "count": 1,
+        "rate": 0.002824858757062147
+      }
+    ],
+    "extended_classes": [
+      "K",
+      "K_1",
+      "K_2",
+      "K_3",
+      "K_4"
+    ],
+    "extended_class_mapping": {
+      "K": "K",
+      "K_1": "E",
+      "K_2": "L",
+      "K_3": "M",
+      "K_4": "R"
+    }
+  },
+  "L": {
+    "correct": 1325,
+    "total": 1333,
+    "accuracy": 0.9939984996249063,
+    "confused": [
+      {
+        "char": "l",
+        "count": 3,
+        "rate": 0.002250562640660165
+      }
+    ],
+    "extended_classes": [
+      "L",
+      "L_1"
+    ],
+    "extended_class_mapping": {
+      "L": "L",
+      "L_1": "l"
+    }
+  },
+  "M": {
+    "correct": 721,
+    "total": 729,
+    "accuracy": 0.9890260631001372,
+    "confused": [
+      {
+        "char": "N",
+        "count": 2,
+        "rate": 0.0027434842249657062
+      },
+      {
+        "char": "m",
+        "count": 2,
+        "rate": 0.0027434842249657062
+      },
+      {
+        "char": "L",
+        "count": 1,
+        "rate": 0.0013717421124828531
+      },
+      {
+        "char": "R",
+        "count": 1,
+        "rate": 0.0013717421124828531
+      },
+      {
+        "char": "S",
+        "count": 1,
+        "rate": 0.0013717421124828531
+      },
+      {
+        "char": "V",
+        "count": 1,
+        "rate": 0.0013717421124828531
+      }
+    ],
+    "extended_classes": [
+      "M",
+      "M_1",
+      "M_2",
+      "M_3",
+      "M_4",
+      "M_5",
+      "M_6"
+    ],
+    "extended_class_mapping": {
+      "M": "M",
+      "M_1": "N",
+      "M_2": "m",
+      "M_3": "L",
+      "M_4": "R",
+      "M_5": "S",
+      "M_6": "V"
+    }
+  },
+  "N": {
+    "correct": 1453,
+    "total": 1477,
+    "accuracy": 0.983750846310088,
+    "confused": [
+      {
+        "char": "n",
+        "count": 10,
+        "rate": 0.006770480704129994
+      },
+      {
+        "char": "M",
+        "count": 3,
+        "rate": 0.002031144211238998
+      },
+      {
+        "char": "R",
+        "count": 3,
+        "rate": 0.002031144211238998
+      },
+      {
+        "char": "H",
+        "count": 2,
+        "rate": 0.0013540961408259986
+      }
+    ],
+    "extended_classes": [
+      "N",
+      "N_1",
+      "N_2",
+      "N_3",
+      "N_4"
+    ],
+    "extended_class_mapping": {
+      "N": "N",
+      "N_1": "n",
+      "N_2": "M",
+      "N_3": "R",
+      "N_4": "H"
+    }
+  },
+  "O": {
+    "correct": 1761,
+    "total": 1781,
+    "accuracy": 0.9887703537338574,
+    "confused": [
+      {
+        "char": "o",
+        "count": 8,
+        "rate": 0.004491858506457047
+      },
+      {
+        "char": "D",
+        "count": 4,
+        "rate": 0.0022459292532285235
+      },
+      {
+        "char": "U",
+        "count": 3,
+        "rate": 0.0016844469399213925
+      }
+    ],
+    "extended_classes": [
+      "O",
+      "O_1",
+      "O_2",
+      "O_3"
+    ],
+    "extended_class_mapping": {
+      "O": "O",
+      "O_1": "o",
+      "O_2": "D",
+      "O_3": "U"
+    }
+  },
+  "P": {
+    "correct": 623,
+    "total": 630,
+    "accuracy": 0.9888888888888889,
+    "confused": [
+      {
+        "char": "p",
+        "count": 4,
+        "rate": 0.006349206349206349
+      },
+      {
+        "char": "F",
+        "count": 1,
+        "rate": 0.0015873015873015873
+      },
+      {
+        "char": "W",
+        "count": 1,
+        "rate": 0.0015873015873015873
+      },
+      {
+        "char": "r",
+        "count": 1,
+        "rate": 0.0015873015873015873
+      }
+    ],
+    "extended_classes": [
+      "P",
+      "P_1",
+      "P_2",
+      "P_3",
+      "P_4"
+    ],
+    "extended_class_mapping": {
+      "P": "P",
+      "P_1": "p",
+      "P_2": "F",
+      "P_3": "W",
+      "P_4": "r"
+    }
+  },
+  "R": {
+    "correct": 1684,
+    "total": 1701,
+    "accuracy": 0.9900058788947678,
+    "confused": [
+      {
+        "char": "r",
+        "count": 5,
+        "rate": 0.0029394473838918285
+      },
+      {
+        "char": "B",
+        "count": 3,
+        "rate": 0.001763668430335097
+      },
+      {
+        "char": "H",
+        "count": 3,
+        "rate": 0.001763668430335097
+      },
+      {
+        "char": "T",
+        "count": 2,
+        "rate": 0.0011757789535567313
+      }
+    ],
+    "extended_classes": [
+      "R",
+      "R_1",
+      "R_2",
+      "R_3",
+      "R_4"
+    ],
+    "extended_class_mapping": {
+      "R": "R",
+      "R_1": "r",
+      "R_2": "B",
+      "R_3": "H",
+      "R_4": "T"
+    }
+  },
+  "S": {
+    "correct": 1969,
+    "total": 1989,
+    "accuracy": 0.9899446958270488,
+    "confused": [
+      {
+        "char": "s",
+        "count": 11,
+        "rate": 0.005530417295123178
+      },
+      {
+        "char": "T",
+        "count": 2,
+        "rate": 0.001005530417295123
+      }
+    ],
+    "extended_classes": [
+      "S",
+      "S_1",
+      "S_2"
+    ],
+    "extended_class_mapping": {
+      "S": "S",
+      "S_1": "s",
+      "S_2": "T"
+    }
+  },
+  "T": {
+    "correct": 1705,
+    "total": 1722,
+    "accuracy": 0.9901277584204413,
+    "confused": [
+      {
+        "char": "t",
+        "count": 10,
+        "rate": 0.005807200929152149
+      }
+    ],
+    "extended_classes": [
+      "T",
+      "T_1"
+    ],
+    "extended_class_mapping": {
+      "T": "T",
+      "T_1": "t"
+    }
+  },
+  "U": {
+    "correct": 695,
+    "total": 704,
+    "accuracy": 0.9872159090909091,
+    "confused": [
+      {
+        "char": "u",
+        "count": 4,
+        "rate": 0.005681818181818182
+      },
+      {
+        "char": "I",
+        "count": 2,
+        "rate": 0.002840909090909091
+      },
+      {
+        "char": "G",
+        "count": 1,
+        "rate": 0.0014204545454545455
+      },
+      {
+        "char": "L",
+        "count": 1,
+        "rate": 0.0014204545454545455
+      },
+      {
+        "char": "O",
+        "count": 1,
+        "rate": 0.0014204545454545455
+      }
+    ],
+    "extended_classes": [
+      "U",
+      "U_1",
+      "U_2",
+      "U_3",
+      "U_4",
+      "U_5"
+    ],
+    "extended_class_mapping": {
+      "U": "U",
+      "U_1": "u",
+      "U_2": "I",
+      "U_3": "G",
+      "U_4": "L",
+      "U_5": "O"
+    }
+  },
+  "V": {
+    "correct": 261,
+    "total": 269,
+    "accuracy": 0.9702602230483272,
+    "confused": [
+      {
+        "char": "v",
+        "count": 4,
+        "rate": 0.01486988847583643
+      },
+      {
+        "char": "A",
+        "count": 1,
+        "rate": 0.0037174721189591076
+      },
+      {
+        "char": "U",
+        "count": 1,
+        "rate": 0.0037174721189591076
+      },
+      {
+        "char": "Y",
+        "count": 1,
+        "rate": 0.0037174721189591076
+      },
+      {
+        "char": "e",
+        "count": 1,
+        "rate": 0.0037174721189591076
+      }
+    ],
+    "extended_classes": [
+      "V",
+      "V_1",
+      "V_2",
+      "V_3",
+      "V_4",
+      "V_5"
+    ],
+    "extended_class_mapping": {
+      "V": "V",
+      "V_1": "v",
+      "V_2": "A",
+      "V_3": "U",
+      "V_4": "Y",
+      "V_5": "e"
+    }
+  },
+  "W": {
+    "correct": 399,
+    "total": 416,
+    "accuracy": 0.9591346153846154,
+    "confused": [
+      {
+        "char": "w",
+        "count": 15,
+        "rate": 0.036057692307692304
+      },
+      {
+        "char": "H",
+        "count": 1,
+        "rate": 0.002403846153846154
+      },
+      {
+        "char": "M",
+        "count": 1,
+        "rate": 0.002403846153846154
+      }
+    ],
+    "extended_classes": [
+      "W",
+      "W_1",
+      "W_2",
+      "W_3"
+    ],
+    "extended_class_mapping": {
+      "W": "W",
+      "W_1": "w",
+      "W_2": "H",
+      "W_3": "M"
+    }
+  },
+  "X": {
+    "correct": 140,
+    "total": 141,
+    "accuracy": 0.9929078014184397,
+    "confused": [
+      {
+        "char": "R",
+        "count": 1,
+        "rate": 0.0070921985815602835
+      }
+    ],
+    "extended_classes": [
+      "X",
+      "X_1"
+    ],
+    "extended_class_mapping": {
+      "X": "X",
+      "X_1": "R"
+    }
+  },
+  "Y": {
+    "correct": 397,
+    "total": 402,
+    "accuracy": 0.9875621890547264,
+    "confused": [
+      {
+        "char": "V",
+        "count": 2,
+        "rate": 0.004975124378109453
+      },
+      {
+        "char": "M",
+        "count": 1,
+        "rate": 0.0024875621890547263
+      },
+      {
+        "char": "T",
+        "count": 1,
+        "rate": 0.0024875621890547263
+      },
+      {
+        "char": "y",
+        "count": 1,
+        "rate": 0.0024875621890547263
+      }
+    ],
+    "extended_classes": [
+      "Y",
+      "Y_1",
+      "Y_2",
+      "Y_3",
+      "Y_4"
+    ],
+    "extended_class_mapping": {
+      "Y": "Y",
+      "Y_1": "V",
+      "Y_2": "M",
+      "Y_3": "T",
+      "Y_4": "y"
+    }
+  },
+  "Z": {
+    "correct": 58,
+    "total": 60,
+    "accuracy": 0.9666666666666667,
+    "confused": [
+      {
+        "char": "P",
+        "count": 1,
+        "rate": 0.016666666666666666
+      },
+      {
+        "char": "z",
+        "count": 1,
+        "rate": 0.016666666666666666
+      }
+    ],
+    "extended_classes": [
+      "Z",
+      "Z_1",
+      "Z_2"
+    ],
+    "extended_class_mapping": {
+      "Z": "Z",
+      "Z_1": "P",
+      "Z_2": "z"
+    }
+  },
+  "a": {
+    "correct": 1335,
+    "total": 1356,
+    "accuracy": 0.9845132743362832,
+    "confused": [
+      {
+        "char": "A",
+        "count": 9,
+        "rate": 0.00663716814159292
+      },
+      {
+        "char": "o",
+        "count": 4,
+        "rate": 0.0029498525073746312
+      },
+      {
+        "char": "O",
+        "count": 3,
+        "rate": 0.0022123893805309734
+      },
+      {
+        "char": "d",
+        "count": 2,
+        "rate": 0.0014749262536873156
+      }
+    ],
+    "extended_classes": [
+      "a",
+      "a_1",
+      "a_2",
+      "a_3",
+      "a_4"
+    ],
+    "extended_class_mapping": {
+      "a": "a",
+      "a_1": "A",
+      "a_2": "o",
+      "a_3": "O",
+      "a_4": "d"
+    }
+  },
+  "b": {
+    "correct": 189,
+    "total": 197,
+    "accuracy": 0.9593908629441624,
+    "confused": [
+      {
+        "char": "B",
+        "count": 5,
+        "rate": 0.025380710659898477
+      },
+      {
+        "char": "3",
+        "count": 1,
+        "rate": 0.005076142131979695
+      },
+      {
+        "char": "D",
+        "count": 1,
+        "rate": 0.005076142131979695
+      },
+      {
+        "char": "o",
+        "count": 1,
+        "rate": 0.005076142131979695
+      }
+    ],
+    "extended_classes": [
+      "b",
+      "b_1",
+      "b_2",
+      "b_3",
+      "b_4"
+    ],
+    "extended_class_mapping": {
+      "b": "b",
+      "b_1": "B",
+      "b_2": "3",
+      "b_3": "D",
+      "b_4": "o"
+    }
+  },
+  "c": {
+    "correct": 449,
+    "total": 475,
+    "accuracy": 0.9452631578947368,
+    "confused": [
+      {
+        "char": "C",
+        "count": 15,
+        "rate": 0.031578947368421054
+      },
+      {
+        "char": "0",
+        "count": 2,
+        "rate": 0.004210526315789474
+      },
+      {
+        "char": "d",
+        "count": 2,
+        "rate": 0.004210526315789474
+      },
+      {
+        "char": "e",
+        "count": 2,
+        "rate": 0.004210526315789474
+      },
+      {
+        "char": "o",
+        "count": 2,
+        "rate": 0.004210526315789474
+      },
+      {
+        "char": "G",
+        "count": 1,
+        "rate": 0.002105263157894737
+      },
+      {
+        "char": "I",
+        "count": 1,
+        "rate": 0.002105263157894737
+      },
+      {
+        "char": "p",
+        "count": 1,
+        "rate": 0.002105263157894737
+      }
+    ],
+    "extended_classes": [
+      "c",
+      "c_1",
+      "c_2",
+      "c_3",
+      "c_4",
+      "c_5",
+      "c_6",
+      "c_7",
+      "c_8"
+    ],
+    "extended_class_mapping": {
+      "c": "c",
+      "c_1": "C",
+      "c_2": "0",
+      "c_3": "d",
+      "c_4": "e",
+      "c_5": "o",
+      "c_6": "G",
+      "c_7": "I",
+      "c_8": "p"
+    }
+  },
+  "d": {
+    "correct": 463,
+    "total": 470,
+    "accuracy": 0.9851063829787234,
+    "confused": [
+      {
+        "char": "D",
+        "count": 4,
+        "rate": 0.00851063829787234
+      },
+      {
+        "char": "0",
+        "count": 1,
+        "rate": 0.002127659574468085
+      },
+      {
+        "char": "c",
+        "count": 1,
+        "rate": 0.002127659574468085
+      },
+      {
+        "char": "l",
+        "count": 1,
+        "rate": 0.002127659574468085
+      }
+    ],
+    "extended_classes": [
+      "d",
+      "d_1",
+      "d_2",
+      "d_3",
+      "d_4"
+    ],
+    "extended_class_mapping": {
+      "d": "d",
+      "d_1": "D",
+      "d_2": "0",
+      "d_3": "c",
+      "d_4": "l"
+    }
+  },
+  "e": {
+    "correct": 1792,
+    "total": 1819,
+    "accuracy": 0.9851566794942276,
+    "confused": [
+      {
+        "char": "E",
+        "count": 17,
+        "rate": 0.009345794392523364
+      },
+      {
+        "char": "a",
+        "count": 3,
+        "rate": 0.0016492578339747114
+      },
+      {
+        "char": "n",
+        "count": 2,
+        "rate": 0.0010995052226498076
+      }
+    ],
+    "extended_classes": [
+      "e",
+      "e_1",
+      "e_2",
+      "e_3"
+    ],
+    "extended_class_mapping": {
+      "e": "e",
+      "e_1": "E",
+      "e_2": "a",
+      "e_3": "n"
+    }
+  },
+  "f": {
+    "correct": 221,
+    "total": 227,
+    "accuracy": 0.973568281938326,
+    "confused": [
+      {
+        "char": "F",
+        "count": 3,
+        "rate": 0.013215859030837005
+      },
+      {
+        "char": "l",
+        "count": 2,
+        "rate": 0.00881057268722467
+      },
+      {
+        "char": "t",
+        "count": 1,
+        "rate": 0.004405286343612335
+      }
+    ],
+    "extended_classes": [
+      "f",
+      "f_1",
+      "f_2",
+      "f_3"
+    ],
+    "extended_class_mapping": {
+      "f": "f",
+      "f_1": "F",
+      "f_2": "l",
+      "f_3": "t"
+    }
+  },
+  "g": {
+    "correct": 300,
+    "total": 307,
+    "accuracy": 0.9771986970684039,
+    "confused": [
+      {
+        "char": "G",
+        "count": 4,
+        "rate": 0.013029315960912053
+      },
+      {
+        "char": "b",
+        "count": 2,
+        "rate": 0.006514657980456026
+      },
+      {
+        "char": "y",
+        "count": 1,
+        "rate": 0.003257328990228013
+      }
+    ],
+    "extended_classes": [
+      "g",
+      "g_1",
+      "g_2",
+      "g_3"
+    ],
+    "extended_class_mapping": {
+      "g": "g",
+      "g_1": "G",
+      "g_2": "b",
+      "g_3": "y"
+    }
+  },
+  "h": {
+    "correct": 444,
+    "total": 451,
+    "accuracy": 0.9844789356984479,
+    "confused": [
+      {
+        "char": "H",
+        "count": 5,
+        "rate": 0.011086474501108648
+      },
+      {
+        "char": "b",
+        "count": 1,
+        "rate": 0.0022172949002217295
+      },
+      {
+        "char": "k",
+        "count": 1,
+        "rate": 0.0022172949002217295
+      }
+    ],
+    "extended_classes": [
+      "h",
+      "h_1",
+      "h_2",
+      "h_3"
+    ],
+    "extended_class_mapping": {
+      "h": "h",
+      "h_1": "H",
+      "h_2": "b",
+      "h_3": "k"
+    }
+  },
+  "i": {
+    "correct": 1103,
+    "total": 1125,
+    "accuracy": 0.9804444444444445,
+    "confused": [
+      {
+        "char": "I",
+        "count": 10,
+        "rate": 0.008888888888888889
+      },
+      {
+        "char": "l",
+        "count": 5,
+        "rate": 0.0044444444444444444
+      },
+      {
+        "char": "t",
+        "count": 2,
+        "rate": 0.0017777777777777779
+      },
+      {
+        "char": "u",
+        "count": 2,
+        "rate": 0.0017777777777777779
+      }
+    ],
+    "extended_classes": [
+      "i",
+      "i_1",
+      "i_2",
+      "i_3",
+      "i_4"
+    ],
+    "extended_class_mapping": {
+      "i": "i",
+      "i_1": "I",
+      "i_2": "l",
+      "i_3": "t",
+      "i_4": "u"
+    }
+  },
+  "j": {
+    "correct": 17,
+    "total": 21,
+    "accuracy": 0.8095238095238095,
+    "confused": [
+      {
+        "char": "J",
+        "count": 2,
+        "rate": 0.09523809523809523
+      },
+      {
+        "char": "i",
+        "count": 1,
+        "rate": 0.047619047619047616
+      },
+      {
+        "char": "y",
+        "count": 1,
+        "rate": 0.047619047619047616
+      }
+    ],
+    "extended_classes": [
+      "j",
+      "j_1",
+      "j_2",
+      "j_3"
+    ],
+    "extended_class_mapping": {
+      "j": "j",
+      "j_1": "J",
+      "j_2": "i",
+      "j_3": "y"
+    }
+  },
+  "k": {
+    "correct": 202,
+    "total": 206,
+    "accuracy": 0.9805825242718447,
+    "confused": [
+      {
+        "char": "K",
+        "count": 2,
+        "rate": 0.009708737864077669
+      },
+      {
+        "char": "h",
+        "count": 1,
+        "rate": 0.0048543689320388345
+      },
+      {
+        "char": "s",
+        "count": 1,
+        "rate": 0.0048543689320388345
+      }
+    ],
+    "extended_classes": [
+      "k",
+      "k_1",
+      "k_2",
+      "k_3"
+    ],
+    "extended_class_mapping": {
+      "k": "k",
+      "k_1": "K",
+      "k_2": "h",
+      "k_3": "s"
+    }
+  },
+  "l": {
+    "correct": 666,
+    "total": 686,
+    "accuracy": 0.9708454810495627,
+    "confused": [
+      {
+        "char": "L",
+        "count": 15,
+        "rate": 0.021865889212827987
+      },
+      {
+        "char": "t",
+        "count": 4,
+        "rate": 0.0058309037900874635
+      },
+      {
+        "char": "d",
+        "count": 1,
+        "rate": 0.0014577259475218659
+      }
+    ],
+    "extended_classes": [
+      "l",
+      "l_1",
+      "l_2",
+      "l_3"
+    ],
+    "extended_class_mapping": {
+      "l": "l",
+      "l_1": "L",
+      "l_2": "t",
+      "l_3": "d"
+    }
+  },
+  "m": {
+    "correct": 349,
+    "total": 360,
+    "accuracy": 0.9694444444444444,
+    "confused": [
+      {
+        "char": "M",
+        "count": 7,
+        "rate": 0.019444444444444445
+      },
+      {
+        "char": "n",
+        "count": 4,
+        "rate": 0.011111111111111112
+      }
+    ],
+    "extended_classes": [
+      "m",
+      "m_1",
+      "m_2"
+    ],
+    "extended_class_mapping": {
+      "m": "m",
+      "m_1": "M",
+      "m_2": "n"
+    }
+  },
+  "n": {
+    "correct": 1066,
+    "total": 1080,
+    "accuracy": 0.987037037037037,
+    "confused": [
+      {
+        "char": "N",
+        "count": 9,
+        "rate": 0.008333333333333333
+      }
+    ],
+    "extended_classes": [
+      "n",
+      "n_1"
+    ],
+    "extended_class_mapping": {
+      "n": "n",
+      "n_1": "N"
+    }
+  },
+  "o": {
+    "correct": 1197,
+    "total": 1228,
+    "accuracy": 0.9747557003257329,
+    "confused": [
+      {
+        "char": "O",
+        "count": 14,
+        "rate": 0.011400651465798045
+      },
+      {
+        "char": "a",
+        "count": 5,
+        "rate": 0.004071661237785016
+      },
+      {
+        "char": "e",
+        "count": 4,
+        "rate": 0.003257328990228013
+      }
+    ],
+    "extended_classes": [
+      "o",
+      "o_1",
+      "o_2",
+      "o_3"
+    ],
+    "extended_class_mapping": {
+      "o": "o",
+      "o_1": "O",
+      "o_2": "a",
+      "o_3": "e"
+    }
+  },
+  "p": {
+    "correct": 300,
+    "total": 306,
+    "accuracy": 0.9803921568627451,
+    "confused": [
+      {
+        "char": "P",
+        "count": 5,
+        "rate": 0.016339869281045753
+      },
+      {
+        "char": "g",
+        "count": 1,
+        "rate": 0.0032679738562091504
+      }
+    ],
+    "extended_classes": [
+      "p",
+      "p_1",
+      "p_2"
+    ],
+    "extended_class_mapping": {
+      "p": "p",
+      "p_1": "P",
+      "p_2": "g"
+    }
+  },
+  "r": {
+    "correct": 1012,
+    "total": 1029,
+    "accuracy": 0.9834791059280855,
+    "confused": [
+      {
+        "char": "R",
+        "count": 11,
+        "rate": 0.010689990281827016
+      },
+      {
+        "char": "N",
+        "count": 2,
+        "rate": 0.001943634596695821
+      }
+    ],
+    "extended_classes": [
+      "r",
+      "r_1",
+      "r_2"
+    ],
+    "extended_class_mapping": {
+      "r": "r",
+      "r_1": "R",
+      "r_2": "N"
+    }
+  },
+  "s": {
+    "correct": 860,
+    "total": 885,
+    "accuracy": 0.9717514124293786,
+    "confused": [
+      {
+        "char": "S",
+        "count": 20,
+        "rate": 0.022598870056497175
+      },
+      {
+        "char": "e",
+        "count": 2,
+        "rate": 0.0022598870056497176
+      },
+      {
+        "char": "a",
+        "count": 1,
+        "rate": 0.0011299435028248588
+      },
+      {
+        "char": "l",
+        "count": 1,
+        "rate": 0.0011299435028248588
+      },
+      {
+        "char": "r",
+        "count": 1,
+        "rate": 0.0011299435028248588
+      }
+    ],
+    "extended_classes": [
+      "s",
+      "s_1",
+      "s_2",
+      "s_3",
+      "s_4",
+      "s_5"
+    ],
+    "extended_class_mapping": {
+      "s": "s",
+      "s_1": "S",
+      "s_2": "e",
+      "s_3": "a",
+      "s_4": "l",
+      "s_5": "r"
+    }
+  },
+  "t": {
+    "correct": 1139,
+    "total": 1155,
+    "accuracy": 0.9861471861471861,
+    "confused": [
+      {
+        "char": "T",
+        "count": 9,
+        "rate": 0.007792207792207792
+      },
+      {
+        "char": "i",
+        "count": 2,
+        "rate": 0.0017316017316017316
+      }
+    ],
+    "extended_classes": [
+      "t",
+      "t_1",
+      "t_2"
+    ],
+    "extended_class_mapping": {
+      "t": "t",
+      "t_1": "T",
+      "t_2": "i"
+    }
+  },
+  "u": {
+    "correct": 438,
+    "total": 448,
+    "accuracy": 0.9776785714285714,
+    "confused": [
+      {
+        "char": "U",
+        "count": 7,
+        "rate": 0.015625
+      },
+      {
+        "char": "a",
+        "count": 1,
+        "rate": 0.002232142857142857
+      },
+      {
+        "char": "o",
+        "count": 1,
+        "rate": 0.002232142857142857
+      },
+      {
+        "char": "v",
+        "count": 1,
+        "rate": 0.002232142857142857
+      }
+    ],
+    "extended_classes": [
+      "u",
+      "u_1",
+      "u_2",
+      "u_3",
+      "u_4"
+    ],
+    "extended_class_mapping": {
+      "u": "u",
+      "u_1": "U",
+      "u_2": "a",
+      "u_3": "o",
+      "u_4": "v"
+    }
+  },
+  "v": {
+    "correct": 161,
+    "total": 167,
+    "accuracy": 0.9640718562874252,
+    "confused": [
+      {
+        "char": "I",
+        "count": 1,
+        "rate": 0.005988023952095809
+      },
+      {
+        "char": "U",
+        "count": 1,
+        "rate": 0.005988023952095809
+      },
+      {
+        "char": "V",
+        "count": 1,
+        "rate": 0.005988023952095809
+      },
+      {
+        "char": "s",
+        "count": 1,
+        "rate": 0.005988023952095809
+      },
+      {
+        "char": "w",
+        "count": 1,
+        "rate": 0.005988023952095809
+      },
+      {
+        "char": "x",
+        "count": 1,
+        "rate": 0.005988023952095809
+      }
+    ],
+    "extended_classes": [
+      "v",
+      "v_1",
+      "v_2",
+      "v_3",
+      "v_4",
+      "v_5",
+      "v_6"
+    ],
+    "extended_class_mapping": {
+      "v": "v",
+      "v_1": "I",
+      "v_2": "U",
+      "v_3": "V",
+      "v_4": "s",
+      "v_5": "w",
+      "v_6": "x"
+    }
+  },
+  "w": {
+    "correct": 201,
+    "total": 206,
+    "accuracy": 0.9757281553398058,
+    "confused": [
+      {
+        "char": "L",
+        "count": 2,
+        "rate": 0.009708737864077669
+      },
+      {
+        "char": "W",
+        "count": 2,
+        "rate": 0.009708737864077669
+      },
+      {
+        "char": "m",
+        "count": 1,
+        "rate": 0.0048543689320388345
+      }
+    ],
+    "extended_classes": [
+      "w",
+      "w_1",
+      "w_2",
+      "w_3"
+    ],
+    "extended_class_mapping": {
+      "w": "w",
+      "w_1": "L",
+      "w_2": "W",
+      "w_3": "m"
+    }
+  },
+  "x": {
+    "correct": 46,
+    "total": 48,
+    "accuracy": 0.9583333333333334,
+    "confused": [
+      {
+        "char": "e",
+        "count": 1,
+        "rate": 0.020833333333333332
+      },
+      {
+        "char": "s",
+        "count": 1,
+        "rate": 0.020833333333333332
+      }
+    ],
+    "extended_classes": [
+      "x",
+      "x_1",
+      "x_2"
+    ],
+    "extended_class_mapping": {
+      "x": "x",
+      "x_1": "e",
+      "x_2": "s"
+    }
+  },
+  "y": {
+    "correct": 280,
+    "total": 282,
+    "accuracy": 0.9929078014184397,
+    "confused": [
+      {
+        "char": "u",
+        "count": 1,
+        "rate": 0.0035460992907801418
+      },
+      {
+        "char": "v",
+        "count": 1,
+        "rate": 0.0035460992907801418
+      }
+    ],
+    "extended_classes": [
+      "y",
+      "y_1",
+      "y_2"
+    ],
+    "extended_class_mapping": {
+      "y": "y",
+      "y_1": "u",
+      "y_2": "v"
+    }
+  }
+}

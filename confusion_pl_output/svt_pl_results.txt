@@ -1,0 +1,259 @@
+GT                             PRED                           PL (per-char)                                               
+========================================================================================================================
+living                         living                         l i v i n g                                                 
+room                           room                           r o o m                                                     
+theaters                       theaters                       t h e a t e r s                                             
+insurance                      insurance                      i n s u r a n c e                                           
+standard                       standard                       s t a n d a r d                                             
+center                         center                         c e n t e r                                                 
+antique                        antique                        a n t i q u e                                               
+lula                           lula                           l u l a                                                     
+mall                           mall                           m a l l                                                     
+lula                           lula                           l u l a                                                     
+subway                         subway                         s u b w a y                                                 
+chocolate                      chocolate                      c h o c o l a t e                                           
+ghirardelli                    ghirardelli                    g h i r a r d e l l i                                       
+master                         master                         m a s t e r                                                 
+nails                          nails                          n a i l s                                                   
+glenoak                        glenoaks                       g l e n o a k                                               
+windsor                        windsor                        w i n d s o r                                               
+the                            the                            t h e                                                       
+bangkok                        bangkok                        b a n g k o k                                               
+inn                            inn                            i n n                                                       
+alden                          alden                          a l d e n                                                   
+max                            max                            m a x                                                       
+towing                         towing                         t o w i n g                                                 
+marble                         marble                         m a r b l e                                                 
+yard                           yard                           y a r d                                                     
+orion                          orion                          o r i o n                                                   
+tile                           tile                           t i l e                                                     
+astoria                        astoria                        a s t o r i a                                               
+best                           best                           b e s t                                                     
+inn                            inn                            i n n                                                       
+suites                         suites                         s u i t e s                                                 
+value                          value                          v a l u e                                                   
+payless                        payless                        p a y l e s s                                               
+shoe                           shoe                           s h o e                                                     
+source                         source                         s o u r c e                                                 
+mounts                         mounts                         m o u n t s                                                 
+rocky                          rocky                          r o c k y                                                   
+goodwill                       goodwill                       g o o d w i l l                                             
+goodwill                       gresbull                       g o o_2 d w i_4 l l                                         
+amoeba                         amoega                         a m o e b a                                                 
+music                          music                          m u s i c                                                   
+arcade                         arcade                         a r c a d e                                                 
+brown                          brown                          b r o w n                                                   
+bella                          bella                          b e l l a                                                   
+vista                          vista                          v i s t a                                                   
+inc                            inc                            i n c                                                       
+house                          house                          h o u s e                                                   
+original                       original                       o r i g i n a l                                             
+pancake                        pancake                        p a n c a k e                                               
+living                         living                         l i v i n g                                                 
+lounge                         lounge                         l o u n g e                                                 
+room                           room                           r o o m                                                     
+camden                         camden                         c a m d e n                                                 
+pub                            pub                            p u b                                                       
+pub                            pub                            p u b                                                       
+camden                         camden                         c a m d e n                                                 
+camden                         camden                         c a m d e n                                                 
+macy                           macy                           m a c y                                                     
+rei                            rei                            r e i                                                       
+house                          house                          h o u s e                                                   
+yard                           yard                           y a r d                                                     
+everyday                       everyday                       e v e r y d a y                                             
+music                          music                          m u s i c                                                   
+timberline                     timberline                     t i m b e r l i n e                                         
+mai                            mai                            m a i                                                       
+restaurant                     restaurant                     r e s t a u r a n t                                         
+vietnamese                     vietnamese                     v i e t n a m e s e                                         
+sol                            sol                            s o l                                                       
+shake                          shake                          s h a k e                                                   
+steak                          steak                          s t e a k                                                   
+genies                         genies                         g e n i e s                                                 
+sing                           sing                           s i n g                                                     
+yank                           yank                           y a n k                                                     
+detroit                        detroit                        d e t r o i t                                               
+joes                           joes                           j o e s                                                     
+original                       original                       o r i g i n a l                                             
+coney                          coney                          c o n e y                                                   
+gombei                         gombei                         g o m b e i                                                 
+barber                         barber                         b a r b e r                                                 
+modern                         modern                         m o d e r n                                                 
+department                     department                     d e p a r t m e n t                                         
+houston                        houston                        h o u s t o n                                               
+police                         police                         p o l i c e                                                 
+coney                          coney                          c o n e y                                                   
+island                         island                         i s l a n d                                                 
+james                          james                          j a m e s                                                   
+signs                          signs                          s i g n s                                                   
+save                           save                           s a v e                                                     
+way                            way                            w a y                                                       
+inn                            inn                            i n n                                                       
+days                           mvs                            d a y_1 s                                                   
+days                           days                           d a y s                                                     
+inn                            inn                            i n n                                                       
+night                          nighto                         n i g h t                                                   
+therapy                        therapy                        t h e r a p y                                               
+lounge                         lounge                         l o u n g e                                                 
+anno                           anno                           a n n o                                                     
+domini                         domini                         d o m i n i                                                 
+francisco                      francials                      f r a n c i s c o                                           
+grand                          grand                          g r a n d                                                   
+hyatt                          hyatt                          h y a t t                                                   
+san                            san                            s a n                                                       
+portal                         portal                         p o r t a l                                                 
+brown                          brown                          b r o w n                                                   
+hotel                          hotel                          h o t e l                                                   
+palace                         palace                         p a l a c e                                                 
+spa                            spa                            s p a                                                       
+and                            and                            a n d                                                       
+comfort                        comfort                        c o m f o r t                                               
+comfort                        comfort                        c o m f o r t                                               
+inn                            inn                            i n n                                                       
+inn                            inn                            i n n                                                       
+macys                          mabys                          m a c y s                                                   
+miraido                        miraido                        m i r a i d o                                               
+village                        village                        v i l l a g e                                               
+domino                         domino                         d o m i n o                                                 
+benders                        benders                        b e n d e r s                                               
+hill                           hill                           h i l l                                                     
+inn                            inn                            i n n                                                       
+nob                            nob                            n o b                                                       
+books                          books                          b o o k s                                                   
+capitol                        capitol                        c a p i t o l                                               
+hill                           hill                           h i l l                                                     
+pge                            pge                            p g e                                                       
+pge                            pge                            p g e                                                       
+park                           park                           p a r k                                                     
+park                           park                           p a r k                                                     
+market                         market                         m a r k e t                                                 
+world                          world                          w o r l d                                                   
+michael                        michael                        m i c h a e l                                               
+the                            the                            t h e                                                       
+arts                           arts                           a r t s                                                     
+crafts                         crafts                         c r a f t s                                                 
+fitness                        fitness                        f i t n e s s                                               
+americania                     americania                     a m e r i c a n i a                                         
+best                           best                           b e s t                                                     
+western                        western                        w e s t e r n                                               
+hotel                          hotel                          h o t e l                                                   
+cafe                           cafe                           c a f e                                                     
+garden                         garden                         g a r d e n                                                 
+maru                           maru                           m a r u                                                     
+sushi                          sushi                          s u s h i                                                   
+complexions                    complexions                    c o m p l e x i o n s                                       
+chiapparelli                   chiapparelli                   c h i a p p a r e l l i                                     
+warfield                       warfield                       w a r f i e l d                                             
+warfield                       warfield                       w a r f i e l d                                             
+chinatown                      chinatown                      c h i n a t o w n                                           
+hotel                          hotel                          h o t e l                                                   
+day                            day                            d a y                                                       
+physicians                     physicians                     p h y s i c i a n s                                         
+surgery                        surgery                        s u r g e r y                                               
+center                         center                         c e n t e r                                                 
+diego                          diego                          d i e g o                                                   
+san                            san                            s a n                                                       
+comfort                        comfort                        c o m f o r t                                               
+gaslamp                        gaslamp                        g a s l a m p                                               
+inn                            inn                            i n n                                                       
+inn                            inn                            i n n                                                       
+comfort                        comfort                        c o m f o r t                                               
+players                        players                        p l a y e r s                                               
+plays                          plays                          p l a y s                                                   
+starbucks                      starbucks                      s t a r b u c k s                                           
+four                           four                           f o u r                                                     
+seasons                        seasons                        s e a s o n s                                               
+outdoor                        outdoor                        o u t d o o r                                               
+outdoor                        outdoor                        o u t d o o r                                               
+store                          store                          s t o r e                                                   
+store                          store                          s t o r e                                                   
+portland                       portland                       p o r t l a n d                                             
+restaurat                      restaurat                      r e s t a u r a t                                           
+bar                            bar                            b a r                                                       
+bar                            bar                            b a r                                                       
+blue                           blue                           b l u e                                                     
+collar                         collar                         c o l l a r                                                 
+the                            the                            t h e                                                       
+embassy                        embassy                        e m b a s s y                                               
+suites                         suites                         s u i t e s                                                 
+brew                           brew                           b r e w                                                     
+labrador                       labrador                       l a b r a d o r                                             
+lucky                          lucky                          l u c k y                                                   
+pub                            pub                            p u b                                                       
+crowne                         crowne                         c r o w n e                                                 
+plaza                          plaza                          p l a z a                                                   
+hotel                          hotel                          h o t e l                                                   
+bento                          bento                          b e n t o                                                   
+yasda                          yasda                          y a s d a                                                   
+doll                           doll                           d o l l                                                     
+hut                            hut                            h u t                                                       
+biersch                        biersch                        b i e r s c h                                               
+brewery                        brewery                        b r e w e r y                                               
+gordon                         gordon                         g o r d o n                                                 
+restaurant                     restaurant                     r e s t a u r a n t                                         
+dakao                          dakao                          d a k a o                                                   
+restaurant                     restaurant                     r e s t a u r a n t                                         
+garlbyan                       garlbyan                       g a r l b y a n                                             
+melanya                        melanya                        m e l a n y a                                               
+cleaning                       cleaning                       c l e a n i n g                                             
+place                          place                          p l a c e                                                   
+bacar                          bacar                          b a c a r                                                   
+thairish                       thairish                       t h a i r i s h                                             
+thai                           thai                           t h a i                                                     
+labyrinth                      labyrinth                      l a b y r i n t h                                           
+symphony                       symphony                       s y m p h o n y                                             
+hall                           hall                           h a l l                                                     
+quality                        quality                        q u a l i t y                                               
+hotel                          hotel                          h o t e l                                                   
+mckinney                       mckinney                       m c k i n n e y                                             
+donuts                         donuts                         d o n u t s                                                 
+dunkin                         dunkin                         d u n k i n                                                 
+coffee                         coffee                         c o f f e e                                                 
+trax                           trax                           t r a x                                                     
+wax                            wax                            w a x                                                       
+records                        records                        r e c o r d s                                               
+irving                         irving                         i r v i n g                                                 
+washington                     washington                     w a s h i n g t o n                                         
+school                         school                         s c h o o l                                                 
+lola                           lola                           l o l a                                                     
+burma                          burma                          b u r m a                                                   
+superstar                      superstar                      s u p e r s t a r                                           
+quinn                          quinn                          q u i n n                                                   
+nick                           nick                           n i c k                                                     
+brewery                        brewery                        b r e w e r y                                               
+walnut                         walnut                         w a l n u t                                                 
+croce                          croce                          c r o c e                                                   
+restaurant                     restaurant                     r e s t a u r a n t                                         
+foods                          foods                          f o o d s                                                   
+market                         market                         m a r k e t                                                 
+whole                          whole                          w h o l e                                                   
+delicious                      delicious                      d e l i c i o u s                                           
+gigi                           gigi                           g i g i                                                     
+just                           just                           j u s t                                                     
+center                         center                         c e n t e r                                                 
+cityplace                      cityplace                      c i t y p l a c e                                           
+baltimore                      baltimore                      b a l t i m o r e                                           
+scores                         scores                         s c o r e s                                                 
+scores                         scores                         s c o r e s                                                 
+dolan                          dolan                          d o l a n                                                   
+dolan                          dolan                          d o l a n                                                   
+executive                      executive                      e x e c u t i v e                                           
+hotel                          hotel                          h o t e l                                                   
+pacific                        pacific                        p a c i f i c                                               
+the                            the                            t h e                                                       
+man                            man                            m a n                                                       
+museum                         museum                         m u s e u m                                                 
+bayside                        bayside                        b a y s i d e                                               
+best                           best                           b e s t                                                     
+western                        western                        w e s t e r n                                               
+inn                            inn                            i n n                                                       
+gamestop                       gamestop                       g a m e s t o p                                             
+arts                           arts                           a r t s                                                     
+bob                            bob                            b o b                                                       
+carr                           carr                           c a r r                                                     
+centre                         centre                         c e n t r e                                                 
+performing                     performing                     p e r f o r m i n g                                         
+orlando                        orlando                        o r l a n d o                                               
+blockbuster                    blockbuster                    b l o c k b u s t e r                                       
+video                          video                          v i d e o                                                   
