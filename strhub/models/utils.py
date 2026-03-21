@@ -45,6 +45,17 @@ def _get_config(experiment: str, **kwargs):
 
 
 def _get_model_class(key):
+    # If key is a .ckpt path, try reading the Hydra config saved alongside it
+    # to get the model._target_ (e.g. strhub.models.parseq.system.PARSeq)
+    if key.endswith('.ckpt'):
+        from pathlib import Path
+        config_path = Path(key).parents[1] / 'config' / 'config.yaml'
+        if config_path.exists():
+            with open(config_path, 'r') as f:
+                cfg = yaml.load(f, yaml.Loader)
+            target = cfg.get('model', {}).get('_target_', '')
+            key = target.lower()
+
     if 'abinet' in key:
         from .abinet.system import ABINet as ModelClass
     elif 'crnn' in key:

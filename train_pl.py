@@ -9,6 +9,7 @@ Key differences from train.py:
 import json
 import math
 import random
+
 from pathlib import Path, PurePath
 
 import hydra
@@ -87,32 +88,48 @@ class ValPredictionLogger(Callback):
         table = wandb.Table(columns=['image', 'gt', 'pred', 'pred_raw', 'correct'])
         for img, gt, pred_raw, pred_mapped in samples:
             table.add_data(wandb.Image(img), gt, pred_mapped, pred_raw, gt == pred_mapped)
-        trainer.logger.experiment.log({'val_samples': table})
+        trainer.logger.experiment.log({'val_samples': table}, step=trainer.global_step)
         self.val_data.clear()
 
 
 class PLSceneTextDataModule(SceneTextDataModule):
     """Data module that uses PL LMDB for training (with normalize_unicode=False)
-    and original LMDB for validation/test."""
+    and original LMDB for validation/test.
 
-    def __init__(self, pl_root_dir: str, **kwargs):
+    If use_pl_data=False, falls back to standard SceneTextDataModule training data.
+    """
+
+    def __init__(self, pl_root_dir: str, use_pl_data: bool = True, **kwargs):
         super().__init__(**kwargs)
         self.pl_root_dir = pl_root_dir
+        self.use_pl_data = use_pl_data
 
     @property
     def train_dataset(self):
         if self._train_dataset is None:
             transform = self.get_transform(self.img_size, self.augment)
-            root = PurePath(self.pl_root_dir, 'train', self.train_dir)
-            self._train_dataset = build_tree_dataset(
-                root,
-                self.charset_train,
-                self.max_label_length,
-                self.min_image_dim,
-                self.remove_whitespace,
-                False,  # normalize_unicode=False to preserve extended chars
-                transform=transform,
-            )
+            if self.use_pl_data:
+                root = PurePath(self.pl_root_dir, 'train', self.train_dir)
+                self._train_dataset = build_tree_dataset(
+                    root,
+                    self.charset_train,
+                    self.max_label_length,
+                    self.min_image_dim,
+                    self.remove_whitespace,
+                    False,  # normalize_unicode=False to preserve extended chars
+                    transform=transform,
+                )
+            else:
+                root = PurePath(self.root_dir, 'train', self.train_dir)
+                self._train_dataset = build_tree_dataset(
+                    root,
+                    self.charset_train,
+                    self.max_label_length,
+                    self.min_image_dim,
+                    self.remove_whitespace,
+                    self.normalize_unicode,
+                    transform=transform,
+                )
         return self._train_dataset
 
 
@@ -130,7 +147,7 @@ def main(config: DictConfig):
 
     with open_dict(config):
         # Validation every 1000 steps for PL training
-        config.trainer.val_check_interval = 1000
+        config.trainer.val_check_interval = 100
         # Data paths (~/data/STR/... or absolute)
         config.data.root_dir = resolve_path(config.data.root_dir)
         # PL config: pl_root_dir defaults to data.root_dir + '/PL'
@@ -142,6 +159,9 @@ def main(config: DictConfig):
         if not config.get('unicode_mapping'):
             config.unicode_mapping = 'confusion_pl_output/unicode_mapping.json'
         config.unicode_mapping = resolve_path(config.unicode_mapping)
+        # Whether to use PL LMDB for training (default: True)
+        if not config.get('use_pl_data'):
+            config.use_pl_data = True
         # Special handling for GPU-affected config
         gpu = config.trainer.get('accelerator') == 'gpu'
         devices = config.trainer.get('devices', 0)
@@ -186,8 +206,10 @@ def main(config: DictConfig):
     # Create PL data module (PL LMDB for train, original LMDB for val/test)
     print(f'PL train data root: {config.pl_root_dir}')
     print(f'Val/test data root: {config.data.root_dir}')
+    print(f'use_pl_data: {config.use_pl_data}')
     datamodule = PLSceneTextDataModule(
         pl_root_dir=config.pl_root_dir,
+        use_pl_data=config.use_pl_data,
         root_dir=config.data.root_dir,
         train_dir=config.data.train_dir,
         img_size=config.data.img_size,
@@ -201,21 +223,22 @@ def main(config: DictConfig):
         normalize_unicode=config.data.get('normalize_unicode', True),
     )
 
+    cwd = (
+        HydraConfig.get().runtime.output_dir
+        if config.ckpt_path is None
+        else str(Path(config.ckpt_path).parents[1].absolute())
+    )
     checkpoint = ModelCheckpoint(
         monitor='val_accuracy',
         mode='max',
         save_top_k=3,
         save_last=True,
         filename='{epoch}-{step}-{val_accuracy:.4f}-{val_NED:.4f}',
+        dirpath=cwd + '/checkpoints',
     )
     swa_epoch_start = 0.75
     swa_lr = config.model.lr * get_swa_lr_factor(config.model.warmup_pct, swa_epoch_start)
     swa = StochasticWeightAveraging(swa_lr, swa_epoch_start)
-    cwd = (
-        HydraConfig.get().runtime.output_dir
-        if config.ckpt_path is None
-        else str(Path(config.ckpt_path).parents[1].absolute())
-    )
     trainer: Trainer = hydra.utils.instantiate(
         config.trainer,
         logger=WandbLogger(

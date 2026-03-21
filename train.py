@@ -86,21 +86,22 @@ def main(config: DictConfig):
 
     datamodule: SceneTextDataModule = hydra.utils.instantiate(config.data)
 
+    cwd = (
+        HydraConfig.get().runtime.output_dir
+        if config.ckpt_path is None
+        else str(Path(config.ckpt_path).parents[1].absolute())
+    )
     checkpoint = ModelCheckpoint(
         monitor='val_accuracy',
         mode='max',
         save_top_k=3,
         save_last=True,
         filename='{epoch}-{step}-{val_accuracy:.4f}-{val_NED:.4f}',
+        dirpath=cwd + '/checkpoints',
     )
     swa_epoch_start = 0.75
     swa_lr = config.model.lr * get_swa_lr_factor(config.model.warmup_pct, swa_epoch_start)
     swa = StochasticWeightAveraging(swa_lr, swa_epoch_start)
-    cwd = (
-        HydraConfig.get().runtime.output_dir
-        if config.ckpt_path is None
-        else str(Path(config.ckpt_path).parents[1].absolute())
-    )
     trainer: Trainer = hydra.utils.instantiate(
         config.trainer,
         logger=WandbLogger(
