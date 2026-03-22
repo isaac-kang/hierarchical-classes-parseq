@@ -9,6 +9,7 @@ Key differences from train.py:
 import glob
 import json
 import math
+import os
 import random
 
 from pathlib import Path, PurePath
@@ -261,13 +262,14 @@ def main(config: DictConfig):
         name=config.wandb.name,
         save_dir=cwd,
     )
-    wandb_logger.experiment.config.update({
-        'overrides': list(overrides),
-        'dataset/train_root': train_root,
-        'dataset/train_lmdbs': list_lmdbs(train_root),
-        'dataset/val_root': val_root,
-        'dataset/val_lmdbs': list_lmdbs(val_root),
-    })
+    if int(os.environ.get('LOCAL_RANK', 0)) == 0:
+        wandb_logger.experiment.config.update({
+            'overrides': list(overrides),
+            'dataset/train_root': train_root,
+            'dataset/train_lmdbs': list_lmdbs(train_root),
+            'dataset/val_root': val_root,
+            'dataset/val_lmdbs': list_lmdbs(val_root),
+        })
     trainer: Trainer = hydra.utils.instantiate(
         config.trainer,
         logger=wandb_logger,
