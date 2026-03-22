@@ -32,6 +32,6 @@ for ckpt in $CKPTS; do
     echo "========================================"
     echo "Testing: $ckpt"
     echo "========================================"
-    conda run -n parseq_orig python test_pl.py "$ckpt" $EXTRA_ARGS
+    python test_pl.py "$ckpt" $EXTRA_ARGS
     echo ""
 done
