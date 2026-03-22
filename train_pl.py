@@ -205,8 +205,13 @@ def main(config: DictConfig):
     print(summarize(model, max_depth=2))
 
     # Create PL data module (PL LMDB for train, original LMDB for val/test)
-    print(f'PL train data root: {config.pl_root_dir}')
-    print(f'Val/test data root: {config.data.root_dir}')
+    _train_root = (
+        str(PurePath(config.pl_root_dir, 'train', config.data.train_dir))
+        if config.use_pl_data
+        else str(PurePath(config.data.root_dir, 'train', config.data.train_dir))
+    )
+    print(f'Train data root: {_train_root}')
+    print(f'Val data root:   {PurePath(config.data.root_dir, "val")}')
     print(f'use_pl_data: {config.use_pl_data}')
     datamodule = PLSceneTextDataModule(
         pl_root_dir=config.pl_root_dir,
@@ -246,11 +251,7 @@ def main(config: DictConfig):
             for p in glob.glob(str(Path(root) / '**/data.mdb'), recursive=True)
         )
 
-    train_root = (
-        str(PurePath(config.pl_root_dir, 'train', config.data.train_dir))
-        if config.use_pl_data
-        else str(PurePath(config.data.root_dir, 'train', config.data.train_dir))
-    )
+    train_root = _train_root
     val_root = str(PurePath(config.data.root_dir, 'val'))
 
     overrides = HydraConfig.get().overrides.task
