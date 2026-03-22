@@ -6,6 +6,7 @@ Key differences from train.py:
 2. Training data comes from PL LMDB (normalize_unicode=False to preserve extended chars)
 3. Validation/test data uses original LMDB with standard charset
 """
+import glob
 import json
 import math
 import random
@@ -147,7 +148,7 @@ def main(config: DictConfig):
 
     with open_dict(config):
         # Validation every 1000 steps for PL training
-        config.trainer.val_check_interval = 100
+        config.trainer.val_check_interval = 1000
         # Data paths (~/data/STR/... or absolute)
         config.data.root_dir = resolve_path(config.data.root_dir)
         # PL config: pl_root_dir defaults to data.root_dir + '/PL'
@@ -160,7 +161,7 @@ def main(config: DictConfig):
             config.unicode_mapping = 'confusion_pl_output/unicode_mapping.json'
         config.unicode_mapping = resolve_path(config.unicode_mapping)
         # Whether to use PL LMDB for training (default: True)
-        if not config.get('use_pl_data'):
+        if 'use_pl_data' not in config:
             config.use_pl_data = True
         # Special handling for GPU-affected config
         gpu = config.trainer.get('accelerator') == 'gpu'
@@ -239,14 +240,36 @@ def main(config: DictConfig):
     swa_epoch_start = 0.75
     swa_lr = config.model.lr * get_swa_lr_factor(config.model.warmup_pct, swa_epoch_start)
     swa = StochasticWeightAveraging(swa_lr, swa_epoch_start)
+    def list_lmdbs(root: str) -> list[str]:
+        return sorted(
+            str(Path(p).parent.relative_to(root))
+            for p in glob.glob(str(Path(root) / '**/data.mdb'), recursive=True)
+        )
+
+    train_root = (
+        str(PurePath(config.pl_root_dir, 'train', config.data.train_dir))
+        if config.use_pl_data
+        else str(PurePath(config.data.root_dir, 'train', config.data.train_dir))
+    )
+    val_root = str(PurePath(config.data.root_dir, 'val'))
+
+    overrides = HydraConfig.get().overrides.task
+    wandb_logger = WandbLogger(
+        project=config.wandb.project,
+        group=config.wandb.group,
+        name=config.wandb.name,
+        save_dir=cwd,
+    )
+    wandb_logger.experiment.config.update({
+        'overrides': list(overrides),
+        'dataset/train_root': train_root,
+        'dataset/train_lmdbs': list_lmdbs(train_root),
+        'dataset/val_root': val_root,
+        'dataset/val_lmdbs': list_lmdbs(val_root),
+    })
     trainer: Trainer = hydra.utils.instantiate(
         config.trainer,
-        logger=WandbLogger(
-            project=config.wandb.project,
-            group=config.wandb.group,
-            name=config.wandb.name,
-            save_dir=cwd,
-        ),
+        logger=wandb_logger,
         strategy=trainer_strategy,
         enable_model_summary=False,
         callbacks=[checkpoint, swa, ValPredictionLogger()],
