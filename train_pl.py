@@ -261,6 +261,7 @@ def main(config: DictConfig):
         group=config.wandb.group,
         name=config.wandb.name,
         save_dir=cwd,
+        log_model=False,
     )
     if int(os.environ.get('LOCAL_RANK', 0)) == 0:
         wandb_logger.experiment.config.update({
