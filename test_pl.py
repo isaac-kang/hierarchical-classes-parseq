@@ -11,6 +11,7 @@ import json
 import string
 import sys
 from dataclasses import dataclass
+from pathlib import Path
 
 from tqdm import tqdm
 
@@ -78,6 +79,8 @@ def main():
         help='Path to unicode_mapping.json produced by confusion_and_pl.py',
     )
     args, unknown = parser.parse_known_args()
+    args.data_root = str(Path(args.data_root).expanduser().resolve())
+    args.unicode_mapping = str(Path(args.unicode_mapping).expanduser().resolve())
     kwargs = parse_model_args(unknown)
 
     charset_test = string.digits + string.ascii_lowercase
