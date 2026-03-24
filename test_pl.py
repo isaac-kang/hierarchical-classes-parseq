@@ -30,33 +30,49 @@ class Result:
     ned: float
     confidence: float
     label_length: float
+    ext_ratio: float = 0.0       # % of predicted chars that are extended
+    ext_correct: float = 0.0     # % of ext chars whose base char matches gt at that position
+    ext_count: int = 0           # total extended chars predicted
 
 
 def print_results_table(results: list[Result], file=None):
     w = max(map(len, map(getattr, results, ['dataset'] * len(results))))
     w = max(w, len('Dataset'), len('Combined'))
-    print('| {:<{w}} | # samples | Accuracy | 1 - NED | Confidence | Label Length |'.format('Dataset', w=w), file=file)
-    print('|:{:-<{w}}:|----------:|---------:|--------:|-----------:|-------------:|'.format('----', w=w), file=file)
+    print('| {:<{w}} | # samples | Accuracy | 1 - NED | Confidence | Label Length | Ext% | ExtAcc% | #Ext |'.format('Dataset', w=w), file=file)
+    print('|:{:-<{w}}:|----------:|---------:|--------:|-----------:|-------------:|-----:|--------:|-----:|'.format('----', w=w), file=file)
     c = Result('Combined', 0, 0, 0, 0, 0)
+    total_ext_count = 0
+    total_ext_correct = 0
+    total_pred_chars = 0
     for res in results:
         c.num_samples += res.num_samples
         c.accuracy += res.num_samples * res.accuracy
         c.ned += res.num_samples * res.ned
         c.confidence += res.num_samples * res.confidence
         c.label_length += res.num_samples * res.label_length
+        total_ext_count += res.ext_count
+        # Recover absolute counts for combined calculation
+        n_pred_chars = round(res.ext_count / (res.ext_ratio / 100)) if res.ext_ratio > 0 else round(res.num_samples * res.label_length)
+        total_pred_chars += n_pred_chars
+        total_ext_correct += round(res.ext_correct / 100 * res.ext_count) if res.ext_count > 0 else 0
         print(
             f'| {res.dataset:<{w}} | {res.num_samples:>9} | {res.accuracy:>8.2f} | {res.ned:>7.2f} '
-            f'| {res.confidence:>10.2f} | {res.label_length:>12.2f} |',
+            f'| {res.confidence:>10.2f} | {res.label_length:>12.2f} '
+            f'| {res.ext_ratio:>4.1f} | {res.ext_correct:>7.1f} | {res.ext_count:>4} |',
             file=file,
         )
     c.accuracy /= c.num_samples
     c.ned /= c.num_samples
     c.confidence /= c.num_samples
     c.label_length /= c.num_samples
-    print('|-{:-<{w}}-|-----------|----------|---------|------------|--------------|'.format('----', w=w), file=file)
+    c.ext_count = total_ext_count
+    c.ext_ratio = 100 * total_ext_count / total_pred_chars if total_pred_chars > 0 else 0
+    c.ext_correct = 100 * total_ext_correct / total_ext_count if total_ext_count > 0 else 0
+    print('|-{:-<{w}}-|-----------|----------|---------|------------|--------------|------|---------|------|'.format('----', w=w), file=file)
     print(
         f'| {c.dataset:<{w}} | {c.num_samples:>9} | {c.accuracy:>8.2f} | {c.ned:>7.2f} '
-        f'| {c.confidence:>10.2f} | {c.label_length:>12.2f} |',
+        f'| {c.confidence:>10.2f} | {c.label_length:>12.2f} '
+        f'| {c.ext_ratio:>4.1f} | {c.ext_correct:>7.1f} | {c.ext_count:>4} |',
         file=file,
     )
 
@@ -120,6 +136,8 @@ def main():
         test_set += SceneTextDataModule.TEST_NEW
     test_set = sorted(set(test_set))
 
+    ext_chars = set(ext_to_base.keys())
+
     results = {}
     max_width = max(map(len, test_set))
     for name, dataloader in datamodule.test_dataloaders(test_set).items():
@@ -128,6 +146,10 @@ def main():
         ned = 0
         confidence = 0
         label_length = 0
+        total_pred_chars = 0
+        total_ext_chars = 0
+        ext_converted_correct = 0
+        ext_converted_total = 0
         for imgs, labels in tqdm(iter(dataloader), desc=f'{name:>{max_width}}'):
             res = model.test_step((imgs.to(model.device), labels), -1)['output']
             total += res.num_samples
@@ -135,11 +157,29 @@ def main():
             ned += res.ned
             confidence += res.confidence
             label_length += res.label_length
+
+            # Extended char analysis: run model again to get raw predictions
+            logits = model.forward(imgs.to(model.device))
+            probs = logits.softmax(-1)
+            preds_raw, _ = model.tokenizer.decode(probs)
+            for pred_raw, gt in zip(preds_raw, labels):
+                total_pred_chars += len(pred_raw)
+                for i, c in enumerate(pred_raw):
+                    if c in ext_chars:
+                        total_ext_chars += 1
+                        base_c = ext_to_base[c]
+                        ext_converted_total += 1
+                        if i < len(gt) and base_c == gt[i]:
+                            ext_converted_correct += 1
+
         accuracy = 100 * correct / total
         mean_ned = 100 * (1 - ned / total)
         mean_conf = 100 * confidence / total
         mean_label_length = label_length / total
-        results[name] = Result(name, total, accuracy, mean_ned, mean_conf, mean_label_length)
+        ext_ratio = 100 * total_ext_chars / total_pred_chars if total_pred_chars > 0 else 0
+        ext_correct_ratio = 100 * ext_converted_correct / ext_converted_total if ext_converted_total > 0 else 0
+        results[name] = Result(name, total, accuracy, mean_ned, mean_conf, mean_label_length,
+                               ext_ratio, ext_correct_ratio, total_ext_chars)
 
     result_groups = {
         'Benchmark (Subset)': SceneTextDataModule.TEST_BENCHMARK_SUB,
