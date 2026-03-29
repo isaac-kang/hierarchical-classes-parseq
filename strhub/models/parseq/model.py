@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import math
 from functools import partial
 from typing import Optional, Sequence
 
@@ -91,18 +92,23 @@ class PARSeq(nn.Module):
         tgt_padding_mask: Optional[Tensor] = None,
         tgt_query: Optional[Tensor] = None,
         tgt_query_mask: Optional[Tensor] = None,
+        tgt_soft_emb: Optional[Tensor] = None,
     ):
         N, L = tgt.shape
         # <bos> stands for the null context. We only supply position information for characters after <bos>.
         null_ctx = self.text_embed(tgt[:, :1])
-        tgt_emb = self.pos_queries[:, : L - 1] + self.text_embed(tgt[:, 1:])
+        if tgt_soft_emb is not None:
+            # Use pre-computed soft embeddings for positions after <bos>
+            tgt_emb = self.pos_queries[:, : L - 1] + tgt_soft_emb
+        else:
+            tgt_emb = self.pos_queries[:, : L - 1] + self.text_embed(tgt[:, 1:])
         tgt_emb = self.dropout(torch.cat([null_ctx, tgt_emb], dim=1))
         if tgt_query is None:
             tgt_query = self.pos_queries[:, :L].expand(N, -1, -1)
         tgt_query = self.dropout(tgt_query)
         return self.decoder(tgt_query, tgt_emb, memory, tgt_query_mask, tgt_mask, tgt_padding_mask)
 
-    def forward(self, tokenizer: Tokenizer, images: Tensor, max_length: Optional[int] = None) -> Tensor:
+    def forward(self, tokenizer: Tokenizer, images: Tensor, max_length: Optional[int] = None, refine_temperature: Optional[float] = None, refine_threshold: Optional[float] = None) -> Tensor:
         testing = max_length is None
         max_length = self.max_label_length if max_length is None else min(max_length, self.max_label_length)
         bs = images.shape[0]
@@ -156,13 +162,40 @@ class PARSeq(nn.Module):
             # We can derive it from the AR forward mask by unmasking the token context to the right.
             query_mask[torch.triu(torch.ones(num_steps, num_steps, dtype=torch.bool, device=self._device), 2)] = 0
             bos = torch.full((bs, 1), tokenizer.bos_id, dtype=torch.long, device=self._device)
+            # Embedding weight for soft input (exclude BOS and PAD which are dropped by head)
+            # head outputs num_tokens-2 classes; text_embed has num_tokens embeddings
+            # head maps to indices [0..num_tokens-3] which correspond to text_embed indices [0..num_tokens-3]
+            embed_scale = math.sqrt(self.text_embed.embed_dim)
             for i in range(self.refine_iters):
                 # Prior context is the previous output.
-                tgt_in = torch.cat([bos, logits[:, :-1].argmax(-1)], dim=1)
+                prev_ids = logits[:, :-1].argmax(-1)
+                tgt_in = torch.cat([bos, prev_ids], dim=1)
                 # Mask tokens beyond the first EOS token.
                 tgt_padding_mask = (tgt_in == tokenizer.eos_id).int().cumsum(-1) > 0
+
+                tgt_soft_emb = None
+                if refine_temperature is not None:
+                    # Soft embedding: weighted sum of char embeddings by temperature-scaled probs
+                    probs = (logits[:, :-1] / refine_temperature).softmax(-1)  # (bs, num_steps-1, num_head_classes)
+                    embed_w = self.text_embed.embedding.weight  # (num_tokens, embed_dim)
+                    keep_mask = torch.ones(embed_w.shape[0], dtype=torch.bool, device=self._device)
+                    keep_mask[tokenizer.bos_id] = False
+                    keep_mask[tokenizer.pad_id] = False
+                    head_embed = embed_w[keep_mask]  # (num_head_classes, embed_dim)
+                    soft_emb = embed_scale * (probs @ head_embed)  # (bs, num_steps-1, embed_dim)
+                    hard_emb = embed_scale * self.text_embed.embedding(prev_ids)  # (bs, num_steps-1, embed_dim)
+
+                    if refine_threshold is not None:
+                        # Only use soft embedding where top-1 prob < threshold (uncertain positions)
+                        top1_prob = logits[:, :-1].softmax(-1).max(-1).values  # (bs, num_steps-1)
+                        uncertain = (top1_prob < refine_threshold).unsqueeze(-1)  # (bs, num_steps-1, 1)
+                        tgt_soft_emb = torch.where(uncertain, soft_emb, hard_emb)
+                    else:
+                        tgt_soft_emb = soft_emb
+
                 tgt_out = self.decode(
-                    tgt_in, memory, tgt_mask, tgt_padding_mask, pos_queries, query_mask[:, : tgt_in.shape[1]]
+                    tgt_in, memory, tgt_mask, tgt_padding_mask, pos_queries, query_mask[:, : tgt_in.shape[1]],
+                    tgt_soft_emb=tgt_soft_emb,
                 )
                 logits = self.head(tgt_out)
 

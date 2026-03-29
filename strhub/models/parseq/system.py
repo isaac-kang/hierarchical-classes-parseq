@@ -84,8 +84,12 @@ class PARSeq(CrossEntropySystem):
         self.perm_forward = perm_forward
         self.perm_mirrored = perm_mirrored
 
-    def forward(self, images: Tensor, max_length: Optional[int] = None) -> Tensor:
-        return self.model.forward(self.tokenizer, images, max_length)
+    def forward(self, images: Tensor, max_length: Optional[int] = None, refine_temperature: Optional[float] = None, refine_threshold: Optional[float] = None) -> Tensor:
+        if refine_temperature is None:
+            refine_temperature = getattr(self, 'refine_temperature', None)
+        if refine_threshold is None:
+            refine_threshold = getattr(self, 'refine_threshold', None)
+        return self.model.forward(self.tokenizer, images, max_length, refine_temperature=refine_temperature, refine_threshold=refine_threshold)
 
     def gen_tgt_perms(self, tgt):
         """Generate shared permutations for the whole batch.

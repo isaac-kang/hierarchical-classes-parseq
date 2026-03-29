@@ -5,11 +5,11 @@
             "name": "Debug parseq on GPU0",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/test_save_error_analysis.py",
-            "args": ["pretrained=parseq"],
+            "program": "${workspaceFolder}/test_pl.py",
+            "args": ["outputs/Quokka/train_pl_on_real_pl/2026-03-21_18-43-13/checkpoints/last.ckpt"],
             "env": {
                 "CUDA_DEVICE_ORDER": "PCI_BUS_ID",
-                "CUDA_VISIBLE_DEVICES": "0"
+                "CUDA_VISIBLE_DEVICES": "4"
             },
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal"

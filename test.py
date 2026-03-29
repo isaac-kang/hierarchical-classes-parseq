@@ -78,6 +78,8 @@ def main():
     parser.add_argument('--new', action='store_true', default=False, help='Evaluate on new benchmark datasets')
     parser.add_argument('--rotation', type=int, default=0, help='Angle of rotation (counter clockwise) in degrees.')
     parser.add_argument('--device', default='cuda')
+    parser.add_argument('--refine_temperature', type=float, default=None, help='Temperature for soft embedding in cloze refinement')
+    parser.add_argument('--refine_threshold', type=float, default=None, help='Top-1 prob threshold; soft embedding only for positions below this')
     args, unknown = parser.parse_known_args()
     kwargs = parse_model_args(unknown)
 
@@ -90,6 +92,12 @@ def main():
     print(f'Additional keyword arguments: {kwargs}')
 
     model = load_from_checkpoint(args.checkpoint, **kwargs).eval().to(args.device)
+    if args.refine_temperature is not None:
+        model.refine_temperature = args.refine_temperature
+        print(f'Refine temperature: {args.refine_temperature}')
+    if args.refine_threshold is not None:
+        model.refine_threshold = args.refine_threshold
+        print(f'Refine threshold: {args.refine_threshold}')
     hp = model.hparams
     datamodule = SceneTextDataModule(
         args.data_root,
